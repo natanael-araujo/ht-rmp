@@ -18,7 +18,7 @@ end
 #
 module App
   class << self
-    attr_accessor :name
+    attr_accessor :description
   end
 end
 
