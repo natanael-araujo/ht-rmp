@@ -30,7 +30,7 @@ self, classe Singleton e Class
 
 1.      O Ruby 1.9 implementa o método BasicObject#singleton_class,
         que retorna a classe Singleton de um objeto. Adicione o método
-        BasicObject#metaclass de modo que ele faça a mesma coisa.
+        Object#metaclass de modo que ele faça a mesma coisa.
 
         Teste: test_day_1.rb#test_exercise_1
 
