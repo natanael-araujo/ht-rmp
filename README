@@ -1,0 +1,76 @@
+Ruby Metaprogramming
+====================
+
+Aqui estão os exercícios do workshop de Ruby Metaprogramming.
+Para executá-los, você precisará ter o Ruby instalado. Utilize,
+preferencialmente, a versão 1.9; afinal, não queremos que o Ruby
+se torne o PHP4 pelos próximos 5 anos.
+
+Todos os exercícios possuem testes, que foram divididos por dia de
+workshop. O arquivo test_day_1.rb se refere ao dia 1, o arquivo
+test_day_2.rb se refere ao dia 2, e assim sucessivamente.
+
+Os testes podem ser executados com o comando
+
+  rake test
+
+Faça os testes passarem, criando arquivos equivalentes como
+
+  files/day_1.rb
+  files/day_2.rb
+
+e assim sucessivamente.
+
+Você pode ver os testes para fazer a sua implementação. As soluções
+propostas dos exercícios estão no branch `solution`.
+
+------------------------------
+self, classe Singleton e Class
+------------------------------
+
+1.      O Ruby 1.9 implementa o método BasicObject#singleton_class,
+        que retorna a classe Singleton de um objeto. Adicione o método
+        BasicObject#metaclass de modo que ele faça a mesma coisa.
+
+        Teste: test_day_1.rb#test_exercise_1
+
+
+
+2.      Defina um módulo que implemente os métodos App.name e App.name= utilizando
+        a classe Singleton.
+
+        Teste: test_day_1.rb#test_exercise_2
+
+
+
+3.      Implemente um método no namespace global chamado new_class, que deve retornar
+        uma classe criada dinamicamente. Esta classe deve herdar de uma outra classe
+        chamada Person. O comportamente seria semelhante a
+
+          class SomeClass < Person
+          end
+
+        Teste: test_day_1.rb#test_exercise_3
+
+
+
+4.      Crie uma nova classe dinâmica, cujo nome deve ser "Awesome".
+
+        Teste: test_day_1.rb#test_exercise_4
+
+
+
+5.      Crie um método no namespace global chamado new_method, que deve adicionar
+        um método chamado hello à instância do objeto que ele receberá como argumento.
+        Este método hello deve retornar uma string como "Hello from <CLASSE> instance".
+        A string <CLASSE> deve retornar o nome da classe do objeto.
+
+        Você deve utilizar apenas o receiver; não use os métodos instance_eval, class_eval,
+        eval ou define_method.
+
+        A assinatura deste método é algo como
+
+          def new_method(object)
+          end
+
+        Teste: test_day_1.rb#test_exercise_5
