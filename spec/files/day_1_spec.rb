@@ -18,11 +18,11 @@ describe "Exercises: Day 1" do
     end
 
     it "should respond to getter" do
-      App.should respond_to(:name)
+      App.should respond_to(:description)
     end
 
     it "should respond to setter" do
-      App.should respond_to(:name=)
+      App.should respond_to(:description=)
     end
 
     it "should define App as module" do
@@ -30,9 +30,9 @@ describe "Exercises: Day 1" do
     end
 
     it "should retain value" do
-      App.name = "HOWTO Ruby Metaprogramming"
-      App.name.should == "HOWTO Ruby Metaprogramming"
-      App.instance_variables.should include(:"@name")
+      App.description = "HOWTO Ruby Metaprogramming"
+      App.description.should == "HOWTO Ruby Metaprogramming"
+      App.instance_variables.should include(:"@description")
     end
   end
 

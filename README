@@ -53,7 +53,7 @@ Dia 1: self, classe Singleton e Class
 
 
 
-2.      Defina um módulo que implemente os métodos App.name e App.name= utilizando
+2.      Defina um módulo que implemente os métodos App.description e App.description= utilizando
         a classe Singleton.
 
         Teste: test_day_1.rb#test_exercise_2
