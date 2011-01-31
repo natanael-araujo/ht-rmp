@@ -32,6 +32,10 @@ e assim sucessivamente.
 Você pode ver os testes para fazer a sua implementação. As soluções
 propostas dos exercícios estão no branch `solution`.
 
+--------------------------
+Instalando as dependências
+--------------------------
+
 Para instalar as dependências, instale o
 Bundler (http://rubygems.org/gems/bundler) e execute o comando
 
