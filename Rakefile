@@ -1,8 +1,12 @@
-require "rake/testtask"
+require "rspec/core/rake_task"
 
-Rake::TestTask.new do |t|
-  t.libs << "test"
-  t.libs << File.dirname(__FILE__)
-  t.test_files = FileList["test/**/test*.rb"]
-  t.warning = true
+RSpec::Core::RakeTask.new do |t|
+  t.ruby_opts = "-Ifiles"
+end
+
+(1..5).each do |i|
+  RSpec::Core::RakeTask.new("spec:day_#{i}") do |t|
+    t.ruby_opts = "-Ifiles"
+    t.pattern = "./spec/files/day_#{i}_spec.rb"
+  end
 end
