@@ -16,4 +16,9 @@ class Module
   define_method :instance_variables do
     instance_variables.bind(self).call.collect {|name| name.to_sym}
   end
+
+  instance_methods = instance_method(:instance_methods)
+  define_method :instance_methods do
+    instance_methods.bind(self).call.collect {|name| name.to_sym}
+  end
 end
