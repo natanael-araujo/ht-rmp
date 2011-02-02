@@ -20,7 +20,7 @@ def send_public_method
   Message.new.prepare
 end
 
-#5 fatorar
+#5 refatorar
 class Song
 
   attr_accessor :title, :artist, :duration
@@ -28,3 +28,5 @@ class Song
     [:title, :artist, :duration].each {|attr| self.send(attr.to_s+"=", hash.fetch(attr))}
   end
 end
+
+#6
