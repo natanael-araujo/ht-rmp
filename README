@@ -340,3 +340,89 @@ Dia 3: Code evaluation, Modules & Mixins
       e o resultado será
 
         [2,4,6]
+
+
+
+------------------------------------------
+Dia 4: Constantes, Callable Object e Hooks
+------------------------------------------
+
+1.    Crie um método set_constant que receberá um símbolo. Este símbolo deverá ser normalizado como
+      uma constante e adicionando ao namespace Object.
+
+      A assinatura do método é
+
+        def set_constant(name, value)
+        end
+
+      Uma chamada como
+
+        set_constant(:my_const, 1)
+
+      Deverá criar a constante MY_CONST com o valor 1. Se eu tentar atribuir esta constante com o
+      mesmo valor, o retorno do método deverá ser false.
+
+      Se eu tentar atribuir com um valor diferente, a constante deverá receber este novo valor, sem
+      lançar nenhuma mensagem de warning.
+
+
+
+2.    Crie um mapeamento para o hash abaixo, onde a chave é o nome do método. Caso uma chave
+      inexistente seja passada, a exceção NoMethodError deverá ser lançada.
+
+        module Color
+          COLORS = {
+            :red => "ff0000",
+            :blue => "0000ff",
+            :green => "00ff00",
+            :black => "000000",
+            :white => "ffffff"
+          }
+        end
+
+      Os métodos deverão estar disponíveis como sendo de classe.
+
+        Color.red
+        #=> "ff0000"
+
+      Lembre-se de atualizar o método respond_to?.
+
+
+
+3.    Rastreie todas as subclasses que herdaram da classe Monster. Os nomes destas subclasses devem
+      estar disponíveis através do método Monster.ugly_monsters.
+
+
+
+4.    Toda vez que um método de instância contendo a palavra "fuck" for adicionado à classe Monster,
+      lance a exceção Monster::NoBadWordsError.
+
+
+
+5.    Implemente a DSL à seguir.
+
+        car = Car.new do
+          price 225_000
+          name "Ferrari 458 Italia"
+          wheels 4
+          color :red
+          brand "Ferrari"
+          maximum_speed 321
+        end
+
+        car.name
+        #=> "Ferrari 458 Italia"
+
+        car.respond_to?(:doors)
+        #=> false
+
+        car.doors = 2
+
+        car.respond_to?(:doors)
+        #=> true
+
+        car.doors
+        #=> 2
+
+      A DSL acima não deve possuir nenhum atributo pré-definido. Você deve interceptar o hook
+      method_missing e adicionar cada um dos atributos em tempo de execução.
