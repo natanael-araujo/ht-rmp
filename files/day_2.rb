@@ -1,3 +1,4 @@
+# -*- encoding: utf-8 -*-
 require "spec_helper"
 
 #1
@@ -30,3 +31,8 @@ class Song
 end
 
 #6
+class String
+  def to_leet
+    self.gsub(/[aeiou]/, { 'a' => '4', 'e' => '3', 'i' => '1', 'o' => '0', 'u' => "μ"})
+  end
+end
