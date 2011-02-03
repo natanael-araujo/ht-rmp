@@ -49,14 +49,10 @@ Dia 1: self, classe Singleton e Class
         que retorna a classe Singleton de um objeto. Adicione o método
         Object#metaclass de modo que ele faça a mesma coisa.
 
-        Teste: test_day_1.rb#test_exercise_1
-
 
 
 2.      Defina um módulo que implemente os métodos App.description e App.description= utilizando
         a classe Singleton.
-
-        Teste: test_day_1.rb#test_exercise_2
 
 
 
@@ -67,13 +63,9 @@ Dia 1: self, classe Singleton e Class
           class SomeClass < Person
           end
 
-        Teste: test_day_1.rb#test_exercise_3
-
 
 
 4.      Crie uma nova classe dinâmica, cujo nome deve ser "Awesome".
-
-        Teste: test_day_1.rb#test_exercise_4
 
 
 
@@ -89,8 +81,6 @@ Dia 1: self, classe Singleton e Class
 
           def new_method(object)
           end
-
-        Teste: test_day_1.rb#test_exercise_5
 
 
 
@@ -108,8 +98,6 @@ Dia 2: Methods
           def send_message
           end
 
-        Teste: test_day_2.rb#test_exercise_1
-
 
 
 2.      Crie um método no namespace global chamado send_message_with_args. Este método deverá
@@ -124,8 +112,6 @@ Dia 2: Methods
           def send_message_with_args
           end
 
-        Teste: test_day_2.rb#test_exercise_2
-
 
 
 3.      Crie um método no namespace global chamado send_private_method. Este método deverá
@@ -135,8 +121,6 @@ Dia 2: Methods
 
           def send_private_method
           end
-
-        Teste: test_day_2.rb#test_exercise_3
 
 
 
@@ -148,8 +132,6 @@ Dia 2: Methods
 
           def send_public_method
           end
-
-        Teste: test_day_2.rb#test_exercise_4
 
 
 
@@ -170,8 +152,6 @@ Dia 2: Methods
             :duration => "2:10"
           )
 
-        Teste: test_day_2.rb#test_exercise_5
-
 
 
 6.      Adicione um método String#to_leet, que irá converter uma string para sua versão
@@ -187,8 +167,6 @@ Dia 2: Methods
           }
 
         Ao executar `"banana".to_leet` devemos receber como resultado a string `b4n4n4`.
-
-        Teste: test_day_2.rb#test_exercise_6
 
 
 
@@ -220,8 +198,6 @@ Dia 2: Methods
         Você deve utilizar o método define_method para adicionar o método que retorna a string em
         leet.
 
-        Teste: test_day_2.rb#test_exercise_7
-
 
 
 8.      Semelhante ao exercício anterior, adicione o método Object.reverse_attr, que permitirá criar
@@ -251,15 +227,11 @@ Dia 2: Methods
 
         Você deve utilizar o método class_eval para adicionar o método que retorna a string reversa.
 
-        Teste: test_day_2.rb#test_exercise_8
-
 
 
 9.      Remova o método Car.useless, já que ele não faz nada.
 
         A classe Car foi definida pelo teste.
-
-        Teste: test_day_2.rb#test_exercise_9
 
 
 
@@ -267,15 +239,11 @@ Dia 2: Methods
         implementação original.
         Remova o método Ferrari#color de modo que o retorno seja a implementação original.
 
-        Teste: test_day_2.rb#test_exercise_10
-
 
 
 11.     Assim como o exercício anterior, a classe Ferrari também implementa o método Ferrari#engine.
         Remova o método Ferrari#engine de qualquer chamada ao método, mesmo que presente em uma
         superclasse, lance a exceção NoMethodError.
-
-        Teste: test_day_2.rb#test_exercise_11
 
 
 
@@ -285,7 +253,90 @@ Dia 2: Methods
 
         Utilize o método define_method em conjunto com os métodos instance_method e bind.
 
-        Teste: test_day_2.rb#test_exercise_12
+
+
+----------------------------------------
+Dia 3: Code evaluation, Modules & Mixins
+----------------------------------------
+
+1.      Adicione dinamicamente um novo método de instância usando o método Module.class_eval.
+        Este método deve receber uma string e retornar uma versão em letras maiúsculas.
+        Você deve definir o nome do arquivo e linha onde esse método foi criado.
+
+        A assinatura deste método é
+
+          module Helper
+            def upcase(string)
+            end
+          end
 
 
 
+2.      Crie um método chamado extend_object que deve receber um objeto e um módulo. Este módulo
+        deve ser usado para estender o objeto.
+
+        A assinatura deste método é
+
+          def extend_object(object, mod)
+          end
+
+
+
+3.      Adicione dinamicamente um novo método de classe no módulo Helper usando o método
+        Module.class_eval e a classe Singleton. Este método deve receber uma string e retornar uma
+        versão em letras minúsculas.
+
+        A assinatura deste método é
+
+          module Helper
+            def self.downcase(string)
+            end
+          end
+
+
+
+4.      Crie um método chamado execute_block que deve receber um objeto e um bloco.
+        Este bloco deve ser executado no contexto do objeto. Qualquer objeto pode ser passado
+        para este método: classes, módulos, instâncias de classes...
+
+        A assinatura deste método é
+
+          def execute_block(object, block)
+          end
+
+
+
+5.    Crie um método chamado execute_private que irá executar o método privado Tools.prepare sem
+      utilizar o método send.
+
+      A assinatura deste método é
+
+        def execute_private
+        end
+
+        module Tools
+          private
+
+          def self.prepare
+          end
+        end
+
+
+
+6.    Crie um módulo Multipler que implementa um único método multiply. Este método deve multiplicar
+      cada um dos itens de um array por um número.
+
+      A assinatura deste método é
+
+        module Multipler
+          def multiply(multiplier)
+          end
+        end
+
+      Se eu injetar este módulo na classe Array, posso utilizá-lo como
+
+        [1,2,3].multiply(2)
+
+      e o resultado será
+
+        [2,4,6]
