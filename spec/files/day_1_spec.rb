@@ -6,6 +6,12 @@ describe "Exercises: Day 1" do
       Object.should respond_to(:metaclass)
     end
 
+    it "should not call singleton_class method" do
+      klass = Class.new
+      klass.should_not_receive(:singleton_class)
+      klass.metaclass
+    end
+
     it "should return the singleton class" do
       klass = Class.new
       klass.singleton_class.should be(klass.metaclass)
