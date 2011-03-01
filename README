@@ -32,6 +32,18 @@ e assim sucessivamente.
 Você pode ver os testes para fazer a sua implementação. As soluções
 propostas dos exercícios estão no branch `solution`.
 
+-----------------------------------------------
+Atualizando para a última versão dos exercícios
+-----------------------------------------------
+
+Você não deve editar nenhum arquivo para fazer os testes passarem.
+Apenas adicione as resoluções aos arquivos `files/day_*.rb`.
+
+Para aplicar as últimas atualizações dos exercícios à sua cópia local,
+execute o comando abaixo à partir da raíz do diretório dos exercícios.
+
+  git pull --rebase
+
 --------------------------
 Instalando as dependências
 --------------------------
