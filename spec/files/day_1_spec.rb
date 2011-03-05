@@ -8,7 +8,7 @@ describe "Exercises: Day 1" do
 
     it "should not call singleton_class method" do
       klass = Class.new
-      klass.should_not_receive(:singleton_class)
+      klass.expects(:singleton_class).never
       klass.metaclass
     end
 

@@ -347,7 +347,7 @@ Dia 3: Code evaluation, Modules & Mixins
 
       A assinatura deste método é
 
-        module Multipler
+        module Multiplier
           def multiply(multiplier)
           end
         end
