@@ -1,6 +1,6 @@
 #1
 def Object.metaclass
-  singleton_class
+  class << self; self; end
 end
 
 #2

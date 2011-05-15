@@ -57,7 +57,6 @@ describe "Exercises: Day 3" do
 
   context "Exercise #5" do
     it "should not execute send" do
-      Tools.expects(:prepare).once
       Tools.expects(:send).never
       Tools.expects(:__send__).never
 
@@ -65,11 +64,9 @@ describe "Exercises: Day 3" do
     end
 
     it "should execute private method" do
-      obj = Object.new
-      block = proc { def hello; end }
+      Tools.expects(:prepare).once
 
-      execute_block(obj, block)
-      obj.should respond_to(:hello)
+      execute_private
     end
   end
 

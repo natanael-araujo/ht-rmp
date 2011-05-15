@@ -1,4 +1,4 @@
-# -*- encoding: utf-8 -*-
+# encoding: UTF-8
 require "spec_helper"
 
 #1
@@ -73,3 +73,13 @@ Ferrari.class_eval { remove_method :color }
 
 #11
 Ferrari.class_eval { undef_method :engine }
+
+#12
+
+module Calc
+  sum = instance_method :sum
+  
+  define_method :sum do |n1, n2|
+    sum.bind(self).call(n1 ||= 0, n2 ||= 0)
+  end
+end
