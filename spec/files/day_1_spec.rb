@@ -6,6 +6,12 @@ describe "Exercises: Day 1" do
       Object.should respond_to(:metaclass)
     end
 
+    it "should not call singleton_class method" do
+      klass = Class.new
+      klass.expects(:singleton_class).never
+      klass.metaclass
+    end
+
     it "should return the singleton class" do
       klass = Class.new
       klass.singleton_class.should be(klass.metaclass)
@@ -58,18 +64,22 @@ describe "Exercises: Day 1" do
   end
 
   context "Exercise #5" do
-    subject { ::HOWTO.new }
+    let(:howto) { ::HOWTO.new }
+    let(:metaprogramming) { ::RubyMetaprogramming.new }
 
     before do
-      new_method(subject)
+      new_method(howto)
+      new_method(metaprogramming)
     end
 
     it "should respond to hello" do
-      subject.should respond_to(:hello)
+      howto.should respond_to(:hello)
+      metaprogramming.should respond_to(:hello)
     end
 
     it "should return message" do
-      subject.hello.should == "Hello from HOWTO instance"
+      howto.hello.should == "Hello from HOWTO instance"
+      metaprogramming.hello.should == "Hello from RubyMetaprogramming instance"
     end
   end
 end

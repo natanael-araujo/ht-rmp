@@ -32,6 +32,25 @@ e assim sucessivamente.
 Você pode ver os testes para fazer a sua implementação. As soluções
 propostas dos exercícios estão no branch `solution`.
 
+-----------------------------------------------
+Atualizando para a última versão dos exercícios
+-----------------------------------------------
+
+Você não deve editar nenhum arquivo para fazer os testes passarem.
+Apenas adicione as respostas aos arquivos `files/day_*.rb`.
+
+Primeiro, faça um commit com suas respostas. Execute os comandos abaixo:
+
+  git add files
+  git commit -m "Uma mensagem de commit"
+
+Depois, para aplicar as últimas atualizações dos exercícios à sua cópia local,
+execute o comando abaixo à partir da raíz do diretório dos exercícios.
+
+  git pull --rebase
+
+Rode os testes e corrija sua implementação caso algum deles falhe.
+
 --------------------------
 Instalando as dependências
 --------------------------
@@ -328,7 +347,7 @@ Dia 3: Code evaluation, Modules & Mixins
 
       A assinatura deste método é
 
-        module Multipler
+        module Multiplier
           def multiply(multiplier)
           end
         end
