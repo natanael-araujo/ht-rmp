@@ -18,17 +18,15 @@ end
 
 #4
 def send_public_method
-  Message.new.prepare
+  Message.new.public_send :prepare
 end
 
 #5 refatorar
 class Song
-
   attr_accessor :title, :artist, :duration
+
   def initialize(hash)
-    # [:title, :artist, :duration].each {|attr| self.send(attr.to_s+"=", hash.fetch(attr))}
-    # ?
-    ['title=', 'artist=', 'duration='].each {|attr| self.send(attr, hash.fetch(attr.chop.to_sym))}
+    hash.each {|key, value| send("#{key}=", value)}
   end
 end
 

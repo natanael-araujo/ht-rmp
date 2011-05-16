@@ -5,14 +5,13 @@ end
 
 #2
 module App
-  extend self
-  attr_accessor :description
-
+  class << self
+    attr_accessor :description
+  end
 end
 
 #3
-class Person
-end
+class Person; end
 
 def new_class
   Class.new(Person)
